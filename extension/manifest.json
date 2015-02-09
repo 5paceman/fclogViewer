@@ -1,0 +1,34 @@
+/**
+ * @file Manifest文件，扩展的基本描述信息
+ * @author Wang Yi(wangyi25@baidu.com)
+ * @date Mon Feb 09 2015
+ */
+{
+    "name": "fclogViewer",
+    "version": "0.0.1",
+    "description": "将fclog信息输出至控制台查看",
+    "icons": {},
+    /*"browser_action": {
+        "default_icon": "icon.png"
+    },*/
+    "background": {
+        "scripts": ["config.js", "background.js"]
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "http://*/nirvana-workspace*",
+                "http://fctest.baidu.com:8000/*",
+                "http://fengchao.baidu.com/*"
+            ],
+            "js": ["content.js"],
+            "run_at": "document_start"
+        }
+    ],
+    "permissions": [
+        "http://*/nirvana-workspace*",
+        "webRequest",
+        "tabs"
+    ],
+    "manifest_version": 2
+}
